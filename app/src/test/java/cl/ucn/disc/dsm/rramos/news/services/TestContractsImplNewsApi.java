@@ -31,7 +31,7 @@ public class TestContractsImplNewsApi {
     public void    testRetrieveNews() {
         log.debug("Testing ..");
 
-        Contracts contracts = new   ContractsImplNewsApi("ca0f046705c04b55b6c9305bc4c54b48");
+        Contracts contracts = new   ContractsImplNewsApi("89757d22e41d4e8c99aa21dfad3dbe89");
         int   size = 20 ;
         List<News> news = contracts.retrieveNews(size);
         Assertions.assertNotNull(news, "List null !!");

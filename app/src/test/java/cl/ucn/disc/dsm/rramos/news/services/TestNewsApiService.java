@@ -43,7 +43,7 @@ public class TestNewsApiService {
         log.debug("Good key ..");
         {
             // TODO: Add the real apikey
-            NewsApiService newsApiService = new   NewsApiService("ca0f046705c04b55b6c9305bc4c54b48");
+            NewsApiService newsApiService = new   NewsApiService("89757d22e41d4e8c99aa21dfad3dbe89");
             List<Article> articles = newsApiService.getTopHeadlines("general",  10 );
             log.debug("Articles: {}.", articles);
             log.debug("Articles size: {}.", articles.size());
