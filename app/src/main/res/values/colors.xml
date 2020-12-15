@@ -16,7 +16,7 @@
     <color name="toolbarBackground">@color/green_900</color>
     <color name="windowBackground">@color/green_0</color>
     <color name="dividerColor">@color/green_300</color>
-    <color name="navigationBarColor">green_1100</color>
+    <color name="navigationBarColor">@color/green_1100</color>
 
     <color name="toolbarTitleTextColor">@color/green_0</color>
     <color name="toolbarSubtitleTextColor">@color/green_50</color>
