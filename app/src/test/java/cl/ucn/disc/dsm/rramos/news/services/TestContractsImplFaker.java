@@ -71,8 +71,8 @@ public class TestContractsImplFaker {
                 "The Title",
                 "The Source",
                 "The Author",
-                null   ,
-                null   ,
+                null,
+                null,
                 "The Description",
                 "The Content",
                 ZonedDateTime.now(ZoneId.of("-3"   )));
