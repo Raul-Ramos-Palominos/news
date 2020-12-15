@@ -35,9 +35,9 @@ public class TestContractsImpl {
         Contracts contracts = new ContractsImpl();
 
         List<News> news = contracts.retrieveNews(5);
-        Assertions.assertNotNull(news, "List was null");
-        Assertions.assertTrue(news.size() != 0, "Empty list?");
-        Assertions.assertTrue(news.size() == 5, "List size != 5");
+        Assertions.assertNotNull(news,"List was null");
+        Assertions.assertTrue(news.size() != 0,"Empty list?");
+        Assertions.assertTrue(news.size() == 5,"List size != 5");
 
         log.debug("Done.");
     }

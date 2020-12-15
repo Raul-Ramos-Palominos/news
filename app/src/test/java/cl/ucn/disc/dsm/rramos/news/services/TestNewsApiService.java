@@ -29,22 +29,22 @@ public class TestNewsApiService {
     @Test
     public void wrongApi() throws IOException {
         log.debug("Testing ..");
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            NewsApiService newsApiService = new   NewsApiService(null   );
+        Assertions.assertThrows(IllegalArgumentException.class,() -> {
+            NewsApiService newsApiService = new NewsApiService(null);
         });
 
         log.debug("Wrong key ..");
         Assertions.assertThrows(RuntimeException.class, () -> {
-            NewsApiService newsApiService = new   NewsApiService("This is my wrong key");
-            List<Article> articles = newsApiService.getTopHeadlines("general",  10 );
+            NewsApiService newsApiService = new NewsApiService("This is my wrong key");
+            List<Article> articles = newsApiService.getTopHeadlines("general",10 );
             log.debug("Articles: {}.", articles);
         });
 
         log.debug("Good key ..");
         {
             // TODO: Add the real apikey
-            NewsApiService newsApiService = new   NewsApiService("89757d22e41d4e8c99aa21dfad3dbe89");
-            List<Article> articles = newsApiService.getTopHeadlines("general",  10 );
+            NewsApiService newsApiService = new NewsApiService("89757d22e41d4e8c99aa21dfad3dbe89");
+            List<Article> articles = newsApiService.getTopHeadlines("general",10 );
             log.debug("Articles: {}.", articles);
             log.debug("Articles size: {}.", articles.size());
         }

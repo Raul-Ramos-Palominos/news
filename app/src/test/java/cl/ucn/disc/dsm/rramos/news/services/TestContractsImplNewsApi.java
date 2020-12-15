@@ -23,22 +23,21 @@ import java.util.List;
 
 import cl.ucn.disc.dsm.rramos.news.model.News;
 
-public class TestContractsImplNewsApi {
+public class TestContractsImplNewsApi{
 
     private static final Logger log = LoggerFactory.getLogger(TestContractsImplNewsApi.class);
 
     @Test
-    public void    testRetrieveNews() {
+    public void testRetrieveNews() {
         log.debug("Testing ..");
 
-        Contracts contracts = new   ContractsImplNewsApi("89757d22e41d4e8c99aa21dfad3dbe89");
-        int   size = 20 ;
+        Contracts contracts = new ContractsImplNewsApi("89757d22e41d4e8c99aa21dfad3dbe89");
+        int size = 20 ;
         List<News> news = contracts.retrieveNews(size);
-        Assertions.assertNotNull(news, "List null !!");
+        Assertions.assertNotNull(news,"List null !!");
         Assertions.assertEquals(size, news.size(), "Wrong size!");
-        for   (News n : news) {
-            log.debug("News: {}.", ToStringBuilder.
-                    reflectionToString(n, ToStringStyle.MULTI_LINE_STYLE));
+        for(News n : news) {
+            log.debug("News: {}.", ToStringBuilder.reflectionToString(n, ToStringStyle.MULTI_LINE_STYLE));
         }
         log.debug(".. end.");
     }

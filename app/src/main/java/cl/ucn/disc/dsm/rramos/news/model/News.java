@@ -48,8 +48,7 @@ public class News {
         Validation.minSize(author, 2, "author");
         this.author = author;
 
-        this.id = LongHashFunction.xx()
-                .hashChars(title + "|" + sources + "|" + author);
+        this.id = LongHashFunction.xx().hashChars(title + "|" + sources + "|" + author);
 
         this.url = url;
         this.urlImage = urlImage;

@@ -18,12 +18,12 @@ public class Validation {
 
         notNull(value, message);
 
-        if(value.length() <  minSize)
-            throw  new IllegalArgumentException("Argument wrong size -> " + message);
+        if(value.length() < minSize)
+            throw new IllegalArgumentException("Argument wrong size -> " + message);
     }
 
     public static void notNull(Object value, String message){
         if(value == null)
-            throw  new IllegalArgumentException("Argument null -> " + message);
+            throw new IllegalArgumentException("Argument null -> " + message);
     }
 }

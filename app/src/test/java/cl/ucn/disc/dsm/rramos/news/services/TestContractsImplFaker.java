@@ -43,31 +43,31 @@ public class TestContractsImplFaker {
 
         Assertions.assertEquals(5, news.size(), "List size != 5");
 
-        for(News n : news){
+        for(News n: news){
             log.debug("News: {}", ToStringBuilder.reflectionToString(n, ToStringStyle.MULTI_LINE_STYLE));
         }
 
-        Assertions.assertEquals(0,contracts.retrieveNews(0).size(), "List != 0");
+        Assertions.assertEquals(0,contracts.retrieveNews(0).size(),"List != 0");
 
-        Assertions.assertEquals(3,contracts.retrieveNews(3).size(), "List != 3");
+        Assertions.assertEquals(3,contracts.retrieveNews(3).size(),"List != 3");
 
-        Assertions.assertTrue(contracts.retrieveNews(10).size() <= 10, "List != 10");
+        Assertions.assertTrue(contracts.retrieveNews(10).size() <= 10,"List != 10");
 
         log.debug("Done.");
     }
 
     @Test
-    public void    testSaveNews() {
+    public void testSaveNews() {
         log.debug("Testing ..");
 
-        Contracts contracts = new   ContractsImplFaker();
+        Contracts contracts = new ContractsImplFaker();
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> contracts.saveNews(null   ));
+        Assertions.assertThrows(IllegalArgumentException.class,() -> contracts.saveNews(null));
 
-        int   size = contracts.retrieveNews(1000   ).size();
+        int size = contracts.retrieveNews(1000).size();
         log.debug("Size: {}.", size);
 
-        News news = new   News(
+        News news = new News(
                 "The Title",
                 "The Source",
                 "The Author",
@@ -79,10 +79,9 @@ public class TestContractsImplFaker {
 
         contracts.saveNews(news);
 
-        int   newSize = contracts.retrieveNews(1000   ).size();
+        int newSize = contracts.retrieveNews(1000).size();
 
         Assertions.assertEquals(size + 1, newSize, "Wrong size!");
-
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> contracts.saveNews(news));
 

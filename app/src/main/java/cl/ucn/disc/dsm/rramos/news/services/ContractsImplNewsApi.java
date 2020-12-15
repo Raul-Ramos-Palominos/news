@@ -52,23 +52,22 @@ public class ContractsImplNewsApi implements Contracts {
 
         boolean needFix = false;
 
-        if  (article.getAuthor() == null   ) {
+        if(article.getAuthor() == null) {
             article.setAuthor("No author*");
             needFix = true;
         }
 
-        if  (article.getDescription() == null    || article.getDescription().length() == 0) {
+        if(article.getDescription() == null || article.getDescription().length() == 0) {
             article.setDescription("No description*");
             needFix = true;
         }
 
-        if  (needFix) {
+        if(needFix) {
             log.warn("Article with invalid restrictions: {}.", ToStringBuilder.reflectionToString(
                     article, ToStringStyle.MULTI_LINE_STYLE            ));
         }
 
-        ZonedDateTime publishedAt = ZonedDateTime
-                .parse(article.getPublishedAt())
+        ZonedDateTime publishedAt = ZonedDateTime.parse(article.getPublishedAt())
                 .withZoneSameInstant(ZoneId.of("-3"   ));
 
         if(article.getAuthor() == null || article.getAuthor().length() == 0){
@@ -80,7 +79,7 @@ public class ContractsImplNewsApi implements Contracts {
             return null;
         }
 
-        return new   News(
+        return new News(
                 article.getTitle(),
                 article.getSource().getName(),
                 article.getAuthor(),
@@ -99,23 +98,21 @@ public class ContractsImplNewsApi implements Contracts {
 
     @Override
     public List<News> retrieveNews(Integer size) {
-        try   {
+        try{
             List<Article> articles = newsApiService.getTopHeadlines(
                     "general", size
             );
 
             List<News> news = new ArrayList<>();
 
-            for   (Article article : articles) {
+            for(Article article : articles) {
                 news.add(toNews(article));
             }
-            return news.stream()
-                    .filter(distinctById(News::getId))
+            return news.stream().filter(distinctById(News::getId))
                     .sorted((k1, k2) -> k2.getPublishedAt().compareTo(k1.getPublishedAt()))
                     .collect(Collectors.toList());
-
-        } catch (IOException ex) {
-            throw  new RuntimeException(ex);
+        } catch(IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 
