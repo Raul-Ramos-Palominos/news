@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+            DSADSAIDOSIADASOID
         AsyncTask.execute(() -> {
 
             Contracts contracts = new ContractsImplNewsApi("89757d22e41d4e8c99aa21dfad3dbe89");
